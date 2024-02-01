@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+
+using Microsoft.Win32;
 using Npgsql;
 using WebShop1;
 using YungDev;
@@ -101,4 +102,3 @@ while (true)
         break;
     }
 }
-
