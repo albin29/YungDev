@@ -13,6 +13,13 @@ namespace YungDev;
 
 public class Login
 {
+    private enum Choice
+    {
+        Menu,
+        Play,
+        Stats,
+        Exit
+    }
     public static void Page()
     {
         Console.Clear();
@@ -43,7 +50,7 @@ public class Login
                     Console.ReadKey();
                     File.WriteAllText("../../../LoggedIn.txt", username + "," + password);
 
-                    Customer.LoginMenu();
+                    LoginPage.LoginMenu();
                     customerCheck = false;
                     break;
                 }
@@ -54,7 +61,63 @@ public class Login
                 }
             }
         }
+    }
+    public static void LoginMenu()
+    {
+        Dictionary<string, int> product = new Dictionary<string, int>();
+        string[] productList = File.ReadAllLines("../../../product.txt");
+        Choice Customer = Choice.Menu;
+        bool CustomerCheck = true;
+        while (CustomerCheck)
+        {
+            if (Customer.Equals(Choice.Menu))
+            {
+                Console.Clear();
+                Console.WriteLine("Please choose from below:\n");
+                Console.WriteLine("1. Browse products");
+                Console.WriteLine("2. Shopping cart");
+                Console.WriteLine("3. Transaction history");
+                Console.WriteLine("4. Logout");
+            }
 
+            int customerChoice = 0;
+            string? customerInput = Console.ReadLine();
+            Console.Clear();
+
+            switch (customerChoice)
+            {
+                case 0:
+                    switch (customerInput)
+                    {
+                        case "1":
+                            Customer = Choice.Menu; 
+                            //add logic for going back to main menu
+                            break;
+                        case "2":
+                            Customer = Choice.Play;
+                            //add logic for starting the game
+                            break;
+                        case "3":
+                            Customer = Choice.Stats;
+                            //add logic for seeing your characters statistics
+                            break;
+                        case "4":
+                            Customer = Choice.Exit;
+                            //add logic for exiting the game
+                            break;
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("No valid option, Try again.\n");
+                            break;
+                    }
+                    break;
+            }
+
+            if (Customer.Equals(Choice.Exit))
+            {
+                break;
+            }
+        }
     }
 }
 

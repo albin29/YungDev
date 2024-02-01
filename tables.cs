@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 using Npgsql;
 
 
-string dbUri = "Host=localhost;Port=5455;Username=postgres;Password=postgres;Database=YungDev";
-
-await using var db = NpgsqlDataSource.Create(dbUri);
-
 /*
+
+
 await using (var cmd = db.CreateCommand("DROP TABLE IF EXISTS player CASCADE"))
 {
     await cmd.ExecuteNonQueryAsync();
@@ -22,7 +20,7 @@ await using (var cmd = db.CreateCommand("DROP TABLE IF EXISTS player_stats CASCA
     await cmd.ExecuteNonQueryAsync();
 }
 
-*/
+
 
 string player = @"create table if not exists player(
                 id serial primary key,
@@ -65,3 +63,4 @@ await using (var cmd = db.CreateCommand(highscore))
 {
     await cmd.ExecuteNonQueryAsync();
 }
+*/

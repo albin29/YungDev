@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WebShop1;
 
-public class Customer 
+public class LoginPage 
 {
     private enum Choice
     {
@@ -19,27 +19,10 @@ public class Customer
         Exit
     }
 
-    public static void ReadInfo()
-    {
-        Console.Clear();
-        Console.WriteLine("*********** USER INFORMATION ***********");
-        Dictionary<string, int> customerList = new Dictionary<string, int>();
-        string[] custList = File.ReadAllLines("../../../Customer.txt");
-        int x = 1;
-
-        foreach (string line in custList)
-        {
-            string[] splitLine = line.Split(",");
-            Console.WriteLine("User" + x + ": " + splitLine[0] + "\nPassword: " + splitLine[1]);
-            Console.WriteLine("\n");
-            x++;
-        }
-        Console.WriteLine("Press enter to return");
-        Console.ReadKey();
-    }
-
     
 
+    
+    //change later
     public static void LoginMenu()
     {
         Dictionary<string, int> product = new Dictionary<string, int>();
