@@ -11,10 +11,11 @@ string dbUri = "Host=localhost;Port=5455;Username=postgres;Password=postgres;Dat
 await using var db = NpgsqlDataSource.Create(dbUri);
 
 /*
-await using (var cmd = db.CreateCommand("DROP TABLE IF EXISTS user"))
+await using (var cmd = db.CreateCommand("DROP TABLE IF EXISTS player CASCADE"))
 {
     await cmd.ExecuteNonQueryAsync();
 }
+
 
 await using (var cmd = db.CreateCommand("DROP TABLE IF EXISTS player_stats CASCADE"))
 {
@@ -37,6 +38,7 @@ await using (var cmd = db.CreateCommand(player))
 
 string playerStats = @"create table if not exists player_stats(
                        player_id integer references player(id),
+                       current_day int,
                        programming_skill int,
                        math_skill int,
                        money int,
@@ -49,3 +51,17 @@ await using (var cmd = db.CreateCommand(playerStats))
     await cmd.ExecuteNonQueryAsync();
 }
 
+string highscore = @"CREATE TABLE IF NOT EXISTS highscores AS
+                     SELECT
+                     p.name AS player_name,
+                     ps.current_day,
+                     ps.score
+                     FROM
+                     player_stats ps
+                     JOIN
+                     player p ON ps.player_id = p.id;";
+
+await using (var cmd = db.CreateCommand(highscore))
+{
+    await cmd.ExecuteNonQueryAsync();
+}
