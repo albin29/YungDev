@@ -62,7 +62,7 @@ await using (var cmd = db.CreateCommand(highscore))
     await cmd.ExecuteNonQueryAsync();
 }
 
-/*
+
 Menu menu = Menu.Main;
 
 
@@ -154,4 +154,3 @@ while (true)
         break;
     }
 }
-*/

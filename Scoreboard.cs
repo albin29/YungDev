@@ -30,8 +30,6 @@ namespace YungDev
                     Console.WriteLine($"{name}\t\t{score}\t{date.ToShortDateString()}");
                 }
                 Console.Clear();
-            
-            
         }
     }
 }

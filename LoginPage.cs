@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace WebShop1;
+namespace YungDev;
 
 public class LoginPage 
 {

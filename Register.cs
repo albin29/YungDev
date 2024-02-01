@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 
-namespace WebShop1;
+namespace YungDev;
 
 public class Register
 {
