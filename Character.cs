@@ -1,17 +1,28 @@
 ﻿using Npgsql;
 namespace YungDev;
 
-public class Character
-{
-    private readonly NpgsqlDataSource _db;
+public record Character
+(
+    string Name,
+    int Stamina,
+    int SkillPoints,
+    int Money,
+    int Day
 
-    public Character(NpgsqlDataSource db) 
-    {
-        _db = db;
-
-    }
-
-
+);
 
 
-}
+
+
+
+// Character = ID - name - sassword - stamina - skill_points - money
+
+
+
+// Job = id - name - stamina_requirement - money_potential/day - skill_requirement
+
+// Event
+
+
+
+
