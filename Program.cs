@@ -1,6 +1,7 @@
 using Microsoft.Win32;
 using Npgsql;
 using YungDev;
+/*
 Console.WriteLine("Hello, World!");
 
 string dbUri = "Host=localhost;Port=5455;Username=postgres;Password=postgres;Database=YungDev";
@@ -61,7 +62,7 @@ await using (var cmd = db.CreateCommand(highscore))
 {
     await cmd.ExecuteNonQueryAsync();
 }
-
+*/
 
 Menu menu = Menu.Main;
 
@@ -71,6 +72,10 @@ while (true)
     if (menu.Equals(Menu.Main))
     {
         Console.Clear();
+        Console.WriteLine("                 TOP SCORES");
+        Console.WriteLine("Name\t\t\tScore\tDate");
+        Console.WriteLine("=============================================");
+        Scoreboard.TopThree();
         Console.WriteLine("=============================================");
         Console.WriteLine("              Welcome to YungDev");
         Console.WriteLine("=============================================");
@@ -145,12 +150,14 @@ while (true)
     if (menu.Equals(Menu.Scoreboard))
     {
         Scoreboard.DisplayScoreboard();
+        Console.ReadKey();
+        menu = Menu.Main;
     }
 
         if (menu.Equals(Menu.Exit))
     {
         Console.Clear();
-        Console.WriteLine("Thank you for shopping at WebShop1. Please come again!");
+        Console.WriteLine("Thank you for playing YungDev!");
         break;
     }
 }

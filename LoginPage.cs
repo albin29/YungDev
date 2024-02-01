@@ -19,9 +19,6 @@ public class LoginPage
         Exit
     }
 
-    
-
-    
     //change later
     public static void LoginMenu()
     {
