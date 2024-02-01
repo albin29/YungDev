@@ -21,15 +21,16 @@ namespace YungDev
             Console.WriteLine("Name\t\tScore\tDate");
             Console.WriteLine("--------------------------------");
 
-                while (reader.Read())
-                {
-                    string name = reader["Name"].ToString();
-                    int score = Convert.ToInt32(reader["Score"]);
-                    DateTime date = Convert.ToDateTime(reader["Date"]);
+            while (reader.Read())
+            {
+                string name = reader["Name"].ToString();
+                int score = Convert.ToInt32(reader["Score"]);
+                DateTime date = Convert.ToDateTime(reader["Date"]);
 
-                    Console.WriteLine($"{name}\t\t{score}\t{date.ToShortDateString()}");
-                }
-                Console.Clear();
+                Console.WriteLine($"{name}\t\t{score}\t{date.ToShortDateString()}");
+            }
+            System.Threading.Thread.Sleep(50000000);
+
         }
     }
 }
