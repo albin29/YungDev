@@ -22,6 +22,11 @@ await using (var cmd = db.CreateCommand("DROP TABLE IF EXISTS player_stats CASCA
     await cmd.ExecuteNonQueryAsync();
 }
 
+await using (var cmd = db.CreateCommand("DROP TABLE IF EXISTS highscore CASCADE"))
+{
+    await cmd.ExecuteNonQueryAsync();
+}
+
 */
 
 string player = @"create table if not exists player(
